@@ -45,7 +45,7 @@ console.log(fetchItemsTask.hasValue) // true
 
 ```js
 import tuxi from '@supermdguy/tuxi'
-import Vuex from 'vuex
+import Vuex from 'vuex'
 import { fetchItems } from './api'
 
 
