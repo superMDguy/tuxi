@@ -16,7 +16,9 @@
 npm install --save @supermdguy/tuxi
 ```
 
-## Example
+## Examples
+
+### VanillaJS
 
 ```js
 import tuxi from '@supermdguy/tuxi'
@@ -38,6 +40,42 @@ setTimeout(() => console.log(fetchItemsTask.spinning), 1500) // true
 // After a while...
 console.log(fetchItemsTask.hasValue) // true
 ```
+
+### Vuex Integration
+
+```js
+import tuxi from '@supermdguy/tuxi'
+import Vuex from 'vuex
+import { fetchItems } from './api'
+
+
+const store = new Vuex.Store({
+  state: {
+    items: [],
+    fetchItemsTask: tuxi.task({
+      fnApiCall: fetchItems
+    })
+  },
+  
+  mutations: {
+    SET_ITEMS(state, items) {
+      state.items = items
+    }
+  },
+  
+  actions: {
+    async fetchItems({ commit, state }) {
+      const items = await state.fetchItemsTask.start()
+      commit('SET_ITEMS', items)
+    }
+  }
+})
+
+tuxi.config.store = store
+
+// Now, you can access $store.state.fetchItemsTask in your components!
+```
+
 
 ## Contributing
 
