@@ -1,6 +1,8 @@
 import tuxi from '../lib'
 import helpers from './helpers'
 
+tuxi.config.vue = false // shouldn't matter here, just for better coverage
+
 test('Initial value and clear', async () => {
   const task = tuxi.task(helpers.asyncTimeout(), {
     initialValue: 'tuxi'

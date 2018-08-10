@@ -1,6 +1,8 @@
 import tuxi from '../lib'
 import helpers from './helpers'
 
+tuxi.config.vue = true // shouldn't matter here, just for better coverage
+
 const payload = { name: 'bob' }
 
 test('Supports string for key', async () => {
