@@ -14,7 +14,7 @@
   "scripts": {
     "test": "jest tests/*.test.js --coverage",
     "lint": "eslint --fix ./lib/**/*.js",
-    "build": "rollup -c"
+    "build": "npx rollup -c"
   },
   "keywords": [
     "vuex",
