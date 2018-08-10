@@ -12,7 +12,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "jest tests/*.test.js",
+    "test": "jest tests/*.test.js --coverage",
     "lint": "eslint --fix ./lib/**/*.js",
     "build": "rollup -c"
   },
@@ -52,6 +52,7 @@
     "roots": [
       "tests/"
     ],
+    "collectCoverageFrom": ["lib/**/*.js"],
     "transform": {
       "^.+\\.js$": "babel-jest"
     }
