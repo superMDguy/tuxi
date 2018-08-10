@@ -1,7 +1,11 @@
 {
-  "name": "tuxi",
-  "version": "0.1.0",
-  "description": "Todo",
+  "name": "@supermdguy/tuxi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/superMDguy/tuxi"
+  },
+  "version": "0.1.2",
+  "description": "Automatically manage state of asynchronous tasks.",
   "main": "dist/bundle.umd.js",
   "module": "dist/bundle.es.js",
   "directories": {
@@ -32,6 +36,6 @@
     "is-promise": "^2.1.0"
   },
   "peerDependencies": {
-    "vue": "^2.5.17"
+    "vue": "^2.0.0"
   }
 }
