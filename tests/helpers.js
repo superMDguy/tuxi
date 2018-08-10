@@ -1,8 +1,11 @@
 export default {
-  asyncTimeout(length = 250, resolveWith = 'done') {
-    return () => {
+  asyncTimeout(timeout = 250, resolveWith) {
+    return ({ overrrideTimeout, overrideResolveWith } = {}) => {
       return new Promise(resolve =>
-        setTimeout(() => resolve(resolveWith), length)
+        setTimeout(
+          () => resolve(overrideResolveWith || resolveWith),
+          overrrideTimeout || timeout
+        )
       )
     }
   }

@@ -7,12 +7,15 @@ test('Tuxi imported correctly', () => {
   expect(tuxi.config).toEqual(expect.anything())
 })
 
-test('Initial value', () => {
+test('Initial value and clear', async () => {
   const task = tuxi.task({
-    fnApiCall: helpers.asyncTimeout,
+    fnApiCall: helpers.asyncTimeout(),
     initialValue: 'tuxi'
   })
 
+  expect(task.value).toBe('tuxi')
+  await task.start()
+  task.clear()
   expect(task.value).toBe('tuxi')
 })
 
@@ -90,4 +93,44 @@ test('Gets correct value', async () => {
   await task.start()
   expect(task.hasValue).toBe(true)
   expect(task.value).toBe(RESULT)
+})
+
+test('Prioritizes newest call', async () => {
+  const task = tuxi.task({
+    fnApiCall: helpers.asyncTimeout()
+  })
+
+  const taskPromise1 = task.start({
+    overrideTimeout: 500,
+    overrideResolveWith: '1'
+  })
+  task.start({
+    overrideTimeout: 100,
+    overrideResolveWith: '2'
+  })
+
+  expect.assertions(3)
+  try {
+    await taskPromise1
+  } catch (err) {
+    expect(task.error).toBe(false)
+    expect(task.hasValue).toBe(true)
+    expect(task.value).toBe('2')
+  }
+})
+
+test('Custom empty state', async () => {
+  const EMPTY_VAL = 'empty'
+
+  const task = tuxi.task({
+    fnApiCall: helpers.asyncTimeout(100, EMPTY_VAL),
+    fnIsEmpty: val => val === EMPTY_VAL
+  })
+
+  expect(task.empty).toBe(false)
+
+  await task.start()
+
+  expect(task.empty).toBe(true)
+  expect(task.hasValue).toBe(false)
 })
