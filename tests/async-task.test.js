@@ -61,3 +61,17 @@ test('Spinner delay', async () => {
   await longerTaskDone
   expect(longerTask.spinning).toBe(false)
 })
+
+test('Error state', () => {
+  const ERROR_MESSAGE = 'async failure'
+  const task = tuxi.task({
+    fnApiCall: () => Promise.reject(new Error(ERROR_MESSAGE))
+  })
+
+  expect(task.error).toBe(false)
+  return task.start().catch(err => {
+    expect(err.message).toBe(ERROR_MESSAGE)
+    expect(task.error).toEqual(err)
+    expect(task.error.message).toBe(ERROR_MESSAGE)
+  })
+})
