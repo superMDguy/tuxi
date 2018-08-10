@@ -1,6 +1,6 @@
 {
   "name": "tuxi",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Todo",
   "main": "dist/bundle.umd.js",
   "module": "dist/bundle.es.js",
