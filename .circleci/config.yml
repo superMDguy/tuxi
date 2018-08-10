@@ -8,20 +8,22 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "package-lock.json" }}
             - v1-dependencies-
-      - run: npm install
+      - run: npm ci
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: 'Tests'
           environment:
             JEST_JUNIT_OUTPUT: reports/junit/js-test-results.xml
           command: npm test -- --ci --reporters=default --reporters=jest-junit
       - store_test_results:
-          path: .
+          path: reports/junit
+      - store_artifacts:
+          path: reports/junit
       - store_artifacts:
           path: coverage
       - run: npm run build

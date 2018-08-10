@@ -1,0 +1,12 @@
+<testsuites name="jest tests" tests="4" failures="0" time="2.307">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2018-08-10T13:06:54" time="1.964" tests="4">
+    <testcase classname=" Tuxi imported correctly" name=" Tuxi imported correctly" time="0.005">
+    </testcase>
+    <testcase classname=" Initial value" name=" Initial value" time="0.001">
+    </testcase>
+    <testcase classname=" Pending" name=" Pending" time="0.254">
+    </testcase>
+    <testcase classname=" Spinner delay" name=" Spinner delay" time="1.257">
+    </testcase>
+  </testsuite>
+</testsuites>
