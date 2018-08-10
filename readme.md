@@ -10,7 +10,7 @@
 
 # Tuxi
 
-_:money_with_wings: High class service for your async needs_
+_White glove service for your async needs_
 
 Tuxi automatically manages the state of asynchronous tasks, so you don't have to. No more setting `isLoading` after every api request!
 
