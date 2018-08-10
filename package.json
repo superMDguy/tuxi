@@ -34,6 +34,7 @@
     "eslint-plugin-jest": "^21.20.2",
     "eslint-plugin-prettier": "^2.6.2",
     "jest": "^23.4.2",
+    "jest-junit": "^5.1.0",
     "prettier": "1.14.2",
     "rollup-plugin-commonjs": "^9.1.5",
     "rollup-plugin-node-builtins": "^2.1.2",
@@ -52,9 +53,15 @@
     "roots": [
       "tests/"
     ],
-    "collectCoverageFrom": ["lib/**/*.js"],
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ],
     "transform": {
       "^.+\\.js$": "babel-jest"
-    }
+    },
+    "reporters": [
+      "default",
+      "jest-junit"
+    ]
   }
 }
