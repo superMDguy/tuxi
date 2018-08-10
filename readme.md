@@ -1,5 +1,11 @@
 <img src="https://raw.githubusercontent.com/superMDguy/tuxi/HEAD/tuxedo.svg?sanitize=true" height="200" />
 
+[![CircleCI](https://img.shields.io/circleci/project/superMDguy/tuxi/master.svg?style=flat-square)](https://circleci.com/gh/superMDguy/tuxi/tree/master)
+[![CodeCov](https://img.shields.io/codecov/c/github/superMDguy/tuxi/master.svg?style=flat-square)](https://codecov.io/github/superMDguy/tuxi?branch=master)
+[![NPM Version](https://img.shields.io/npm/v/@supermdguy/tuxi.svg?style=flat-square)](https://www.npmjs.com/package/@supermdguy/tuxi)
+![License](https://img.shields.io/npm/l/all-contributors.svg?style=flat-square)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 # Tuxi
 
 :sparkles: Automatically manages the state of asynchronous tasks, so you don't have to
