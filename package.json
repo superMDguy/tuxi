@@ -15,6 +15,7 @@
     "test": "jest tests/*.test.js",
     "test:ci": "npm test -- --ci --reporters=default --reporters=jest-junit && npx codecov",
     "lint": "eslint --fix ./lib/**/*.js",
+    "prepublish": "npm run build",
     "build": "npx rollup -c"
   },
   "keywords": [
