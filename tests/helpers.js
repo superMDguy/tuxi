@@ -1,5 +1,5 @@
 export default {
-  asyncTimeout(timeout = 250, resolveWith) {
+  asyncTimeout(timeout = 50, resolveWith) {
     return ({ overrrideTimeout, overrideResolveWith } = {}) => {
       return new Promise(resolve =>
         setTimeout(
@@ -8,5 +8,7 @@ export default {
         )
       )
     }
-  }
+  },
+
+  stringify: x => JSON.stringify(x)
 }
