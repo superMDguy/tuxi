@@ -85,4 +85,4 @@ tuxi.config.store = store
 
 Tuxi is currently in alpha, so any suggestions or contributions are appreciated. I'm still not 100% sure about the API, so comments on how to make it cleaner/simpler are welcome.
 
-_Logo made by [freepik](https://www.flaticon.com/authors/freepik) from www.flaticon.com
+_Logo made by [freepik](https://www.flaticon.com/authors/freepik) from www.flaticon.com_
