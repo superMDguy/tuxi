@@ -1,4 +1,4 @@
-<img src="tuxedo.svg" height="200" />
+<img src="https://raw.githubusercontent.com/superMDguy/tuxi/HEAD/tuxedo.svg?sanitize=true" height="200" />
 
 # Tuxi
 
