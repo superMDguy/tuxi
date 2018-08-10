@@ -13,10 +13,10 @@ npm install --save @supermdguy/tuxi
 ## Example
 
 ```js
-import { asyncTask } from 'tuxi'
+import tuxi from '@supermdguy/tuxi'
 import { fetchItems } from './api'
 
-const fetchItemsTask = asyncTask({
+const fetchItemsTask = tuxi.task({
   fnApiCall: fetchItems
 })
 
