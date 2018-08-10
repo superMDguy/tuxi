@@ -70,6 +70,7 @@ const store = new Vuex.Store({
   }
 })
 
+tuxi.config.vue = true
 tuxi.config.store = store
 
 // Now, you can access $store.state.fetchItemsTask in your components!
