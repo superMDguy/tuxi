@@ -12,7 +12,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest tests/*.test.js",
     "lint": "eslint --fix ./lib/**/*.js",
     "build": "rollup -c"
   },
@@ -25,13 +25,20 @@
   "author": "Matthew Dangerfield",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^5.3.0",
     "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-jest": "^21.20.2",
     "eslint-plugin-prettier": "^2.6.2",
+    "jest": "^23.4.2",
     "prettier": "1.14.2",
     "rollup-plugin-commonjs": "^9.1.5",
     "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-resolve": "^3.3.0"
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "vue": "^2.5.17"
   },
   "dependencies": {
     "is-promise": "^2.1.0",
@@ -39,5 +46,14 @@
   },
   "peerDependencies": {
     "vue": "^2.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "roots": [
+      "tests/"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
   }
 }
