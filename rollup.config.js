@@ -1,5 +1,6 @@
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
+import builtins from 'rollup-plugin-node-builtins'
 
 export default {
   input: 'lib/index.js',
@@ -15,6 +16,6 @@ export default {
       format: 'es'
     }
   ],
-  plugins: [resolve(), commonjs()],
+  plugins: [resolve(), commonjs(), builtins()],
   external: ['vue']
 }
