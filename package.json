@@ -58,10 +58,6 @@
     ],
     "transform": {
       "^.+\\.js$": "babel-jest"
-    },
-    "reporters": [
-      "default",
-      "jest-junit"
-    ]
+    }
   }
 }
