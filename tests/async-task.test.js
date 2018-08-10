@@ -8,8 +8,7 @@ test('Tuxi imported correctly', () => {
 })
 
 test('Initial value and clear', async () => {
-  const task = tuxi.task({
-    fnApiCall: helpers.asyncTimeout(),
+  const task = tuxi.task(helpers.asyncTimeout(), {
     initialValue: 'tuxi'
   })
 
@@ -20,9 +19,7 @@ test('Initial value and clear', async () => {
 })
 
 test('Pending', async () => {
-  const task = tuxi.task({
-    fnApiCall: helpers.asyncTimeout()
-  })
+  const task = tuxi.task(helpers.asyncTimeout())
 
   expect(task.pending).toBe(false)
   const taskDone = task.start()
@@ -33,8 +30,7 @@ test('Pending', async () => {
 })
 
 test('Spinner delay', async () => {
-  const task = tuxi.task({
-    fnApiCall: helpers.asyncTimeout(500),
+  const task = tuxi.task(helpers.asyncTimeout(500), {
     spinnerDelay: 250
   })
 
@@ -47,8 +43,7 @@ test('Spinner delay', async () => {
   await taskDone
   expect(task.spinning).toBe(false)
 
-  const longerTask = tuxi.task({
-    fnApiCall: helpers.asyncTimeout(750),
+  const longerTask = tuxi.task(helpers.asyncTimeout(750), {
     spinnerDelay: 500
   })
 
@@ -67,9 +62,7 @@ test('Spinner delay', async () => {
 
 test('Error state', async () => {
   const ERROR_MESSAGE = 'async failure'
-  const task = tuxi.task({
-    fnApiCall: () => Promise.reject(new Error(ERROR_MESSAGE))
-  })
+  const task = tuxi.task(() => Promise.reject(new Error(ERROR_MESSAGE)))
 
   expect(task.error).toBe(false)
   try {
@@ -85,9 +78,7 @@ test('Error state', async () => {
 test('Gets correct value', async () => {
   const RESULT = 'async result'
 
-  const task = tuxi.task({
-    fnApiCall: helpers.asyncTimeout(100, RESULT)
-  })
+  const task = tuxi.task(helpers.asyncTimeout(100, RESULT))
 
   expect(task.hasValue).toBe(false)
   await task.start()
@@ -96,9 +87,7 @@ test('Gets correct value', async () => {
 })
 
 test('Prioritizes newest call', async () => {
-  const task = tuxi.task({
-    fnApiCall: helpers.asyncTimeout()
-  })
+  const task = tuxi.task(helpers.asyncTimeout())
 
   const taskPromise1 = task.start({
     overrideTimeout: 500,
@@ -122,8 +111,7 @@ test('Prioritizes newest call', async () => {
 test('Custom empty state', async () => {
   const EMPTY_VAL = 'empty'
 
-  const task = tuxi.task({
-    fnApiCall: helpers.asyncTimeout(100, EMPTY_VAL),
+  const task = tuxi.task(helpers.asyncTimeout(100, EMPTY_VAL), {
     fnIsEmpty: val => val === EMPTY_VAL
   })
 

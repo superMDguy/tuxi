@@ -28,9 +28,7 @@ npm install --save @supermdguy/tuxi
 import tuxi from '@supermdguy/tuxi'
 import { fetchItems } from './api'
 
-const fetchItemsTask = tuxi.task({
-  fnApiCall: fetchItems
-})
+const fetchItemsTask = tuxi.task(fetchItems)
 
 // ⚡ Fire the api call
 fetchItemsTask.start()
@@ -52,21 +50,18 @@ import tuxi from '@supermdguy/tuxi'
 import Vuex from 'vuex'
 import { fetchItems } from './api'
 
-
 const store = new Vuex.Store({
   state: {
     items: [],
-    fetchItemsTask: tuxi.task({
-      fnApiCall: fetchItems
-    })
+    fetchItemsTask: tuxi.task(fetchItems)
   },
-  
+
   mutations: {
     SET_ITEMS(state, items) {
       state.items = items
     }
   },
-  
+
   actions: {
     async fetchItems({ commit, state }) {
       const items = await state.fetchItemsTask.start()
@@ -79,7 +74,6 @@ tuxi.config.store = store
 
 // Now, you can access $store.state.fetchItemsTask in your components!
 ```
-
 
 ## Contributing
 
