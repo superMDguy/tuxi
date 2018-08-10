@@ -2,7 +2,7 @@
 
 # Tuxi
 
-:sparkles: Automatically manage state of asynchronous tasks.
+:sparkles: Automatically manages the state of asynchronous tasks, so you don't have to
 
 ## Install
 
