@@ -1,12 +1,6 @@
 import tuxi from '../lib'
 import helpers from './helpers'
 
-test('Tuxi imported correctly', () => {
-  expect(tuxi).toEqual(expect.anything())
-  expect(tuxi.task).toEqual(expect.anything())
-  expect(tuxi.config).toEqual(expect.anything())
-})
-
 test('Initial value and clear', async () => {
   const task = tuxi.task(helpers.asyncTimeout(), {
     initialValue: 'tuxi'

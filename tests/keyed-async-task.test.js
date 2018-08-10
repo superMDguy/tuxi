@@ -3,12 +3,6 @@ import helpers from './helpers'
 
 const payload = { name: 'bob' }
 
-test('Tuxi imported correctly', () => {
-  expect(tuxi).toEqual(expect.anything())
-  expect(tuxi.keyed).toEqual(expect.anything())
-  expect(tuxi.config).toEqual(expect.anything())
-})
-
 test('Supports string for key', async () => {
   const RESULT = 'async result'
   const task = tuxi.keyed(helpers.asyncTimeout(50, RESULT), 'name')

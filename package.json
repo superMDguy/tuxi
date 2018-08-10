@@ -42,7 +42,8 @@
     "rollup-plugin-commonjs": "^9.1.5",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-resolve": "^3.3.0",
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "vuex": "^3.0.1"
   },
   "dependencies": {
     "is-promise": "^2.1.0",
