@@ -43,7 +43,50 @@ setTimeout(() => console.log(fetchItemsTask.spinning), 1500) // true
 console.log(fetchItemsTask.hasValue) // true
 ```
 
-### Vuex Integration
+## Vue
+
+```html
+<div class="wrapper">
+  <div class="empty-message" v-if="articlesTask.empty">
+    No articles
+  </div>
+
+  <div class="spinner" v-if="articlesTask.spinning>
+    Loading articles...
+  </div>
+
+  <div class="error-message" v-if="articlesTask.error">
+    {{ articlesTask.error.message }}
+  </div>
+
+  <ul v-if="articlesTask.hasValue">
+    <li v-for="article in articles">
+      {{ article.title }}
+    </li>
+  </ul>
+</div>
+```
+
+```js
+import tuxi from '@supermdguy/tuxi'
+import api from './api'
+
+export default {
+  data() {
+    return {
+      articlesTask: tuxi.task(api.fetchArticles)
+    }
+  },
+
+  computed: {
+    articles() {
+      return this.articlesTask.value
+    }
+  }
+}
+```
+
+### Vuex
 
 ```js
 import tuxi from '@supermdguy/tuxi'
