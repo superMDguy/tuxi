@@ -3,7 +3,7 @@
 <p align="center">
   <a href="https://circleci.com/gh/superMDguy/tuxi/tree/master" target="_blank"><img src="https://img.shields.io/circleci/project/superMDguy/tuxi/master.svg?style=flat-square" alt="CircleCI"></a>
   <a href="https://codecov.io/github/superMDguy/tuxi?branch=master" target="_blank"><img src="https://img.shields.io/codecov/c/github/superMDguy/tuxi/master.svg?style=flat-square" alt="CodeCov"></a>
-  <a href="https://www.npmjs.com/package/@supermdguy/tuxi" target="_blank"><img src="https://img.shields.io/npm/v/@supermdguy/tuxi.svg?style=flat-square" alt="NPM Version"></a>
+  <a href="https://www.npmjs.com/package/tuxi" target="_blank"><img src="https://img.shields.io/npm/v/tuxi.svg?style=flat-square" alt="NPM Version"></a>
   <a href="https://github.com/superMDguy/tuxi/blob/HEAD/LICENSE" target="_blank"><img src="https://img.shields.io/npm/l/all-contributors.svg?style=flat-square" alt="License"></a>
   <a href="http://makeapullrequest.com" target="_blank"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome"></a>
 </p>
@@ -17,7 +17,7 @@ Tuxi automatically manages the state of asynchronous tasks, so you don't have to
 ## Install
 
 ```bash
-npm install --save @supermdguy/tuxi
+npm install --save tuxi
 ```
 
 ## Examples
@@ -25,7 +25,7 @@ npm install --save @supermdguy/tuxi
 ### Pure JavaScript
 
 ```js
-import tuxi from '@supermdguy/tuxi'
+import tuxi from 'tuxi'
 import { fetchItems } from './api'
 
 const fetchItemsTask = tuxi.task(fetchItems)
@@ -68,7 +68,7 @@ console.log(fetchItemsTask.hasValue) // true
 ```
 
 ```js
-import tuxi from '@supermdguy/tuxi'
+import tuxi from 'tuxi'
 import api from './api'
 
 export default {
@@ -89,7 +89,7 @@ export default {
 ### Vuex
 
 ```js
-import tuxi from '@supermdguy/tuxi'
+import tuxi from 'tuxi'
 import Vuex from 'vuex'
 import Vue from 'vue'
 import { fetchItems } from './api'
