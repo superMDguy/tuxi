@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/superMDguy/tuxi"
   },
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Automatically manage state of asynchronous tasks.",
   "main": "dist/bundle.umd.js",
   "module": "dist/bundle.es.js",
