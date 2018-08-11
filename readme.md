@@ -10,9 +10,9 @@
 
 # Tuxi
 
-_White glove service for your async needs_
+_:sparkles: White glove service for your async needs_
 
-Tuxi automatically manages the state of asynchronous tasks, so you don't have to. No more setting `isLoading` after every api request!
+Tuxi automatically manages the state of asynchronous tasks, so you don't have to. No more setting `isLoading` after every api request! :relieved:
 
 ## Install
 
@@ -51,7 +51,7 @@ console.log(fetchItemsTask.hasValue) // true
     No articles
   </div>
 
-  <div class="spinner" v-if="articlesTask.spinning>
+  <div class="spinner" v-if="articlesTask.spinning">
     Loading articles...
   </div>
 
