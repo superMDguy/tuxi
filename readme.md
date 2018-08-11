@@ -91,7 +91,10 @@ export default {
 ```js
 import tuxi from '@supermdguy/tuxi'
 import Vuex from 'vuex'
+import Vue from 'vue'
 import { fetchItems } from './api'
+
+Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
