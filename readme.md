@@ -1,7 +1,7 @@
 <p align="center"><img src="https://raw.githubusercontent.com/superMDguy/tuxi/HEAD/tuxedo.svg?sanitize=true" height="200" /></p>
 
 <p align="center">
-  <a href="https://circleci.com/gh/superMDguy/tuxi/tree/master" target="_blank"><img src="https://img.shields.io/circleci/project/superMDguy/tuxi/master.svg?style=flat-square" alt="CircleCI"></a>
+  <a href="https://circleci.com/gh/superMDguy/tuxi/tree/master" target="_blank"><img src="https://circleci.com/gh/superMDguy/tuxi.svg?style=svg" alt="CircleCI"></a>
   <a href="https://codecov.io/github/superMDguy/tuxi?branch=master" target="_blank"><img src="https://img.shields.io/codecov/c/github/superMDguy/tuxi/master.svg?style=flat-square" alt="CodeCov"></a>
   <a href="https://www.npmjs.com/package/tuxi" target="_blank"><img src="https://img.shields.io/npm/v/tuxi.svg?style=flat-square" alt="NPM Version"></a>
   <a href="https://github.com/superMDguy/tuxi/blob/HEAD/LICENSE" target="_blank"><img src="https://img.shields.io/npm/l/all-contributors.svg?style=flat-square" alt="License"></a>
