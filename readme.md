@@ -92,14 +92,14 @@ export default {
 import tuxi from 'tuxi'
 import Vuex from 'vuex'
 import Vue from 'vue'
-import { fetchItems } from './api'
+import api from './api'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
     items: [],
-    fetchItemsTask: tuxi.task(fetchItems)
+    articlesTask: tuxi.task(api.fetchArticles)
   },
 
   mutations: {
@@ -109,16 +109,20 @@ const store = new Vuex.Store({
   },
 
   actions: {
-    async fetchItems({ commit, state }) {
-      const items = await state.fetchItemsTask.start()
+    async articles({ commit, state }) {
+      const items = await state.articlesTask.start()
       commit('SET_ITEMS', items)
     }
   }
 })
 
 tuxi.config.vuexStore = store
-// Now, you can access $store.state.fetchItemsTask in your components!
+// Now, you can access $store.state.articlesTask in your components!
 ```
+
+### React/Redux
+
+[todo](https://github.com/superMDguy/tuxi/issues/1)
 
 ## Contributing
 
