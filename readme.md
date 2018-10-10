@@ -12,7 +12,7 @@
 
 _:sparkles: White glove service for your async needs_
 
-Tuxi automatically manages the state of asynchronous tasks, so you don't have to. No more setting `isLoading` after every api request! :relieved:
+Tuxi automatically manages the state of asynchronous tasks, so you don't have to. No more setting `isLoading` after every api request! :relieved:. For more details about the motivation for tuxi, check out this [article](https://medium.com/@supermdguy/a-solution-to-async-boilerplate-in-javascript-2fa717801c3b) I wrote.
 
 ## Install
 
@@ -26,21 +26,22 @@ npm install --save tuxi
 
 ```js
 import tuxi from 'tuxi'
-import { fetchItems } from './api'
+import api from './api'
 
-const fetchItemsTask = tuxi.task(fetchItems)
+const articlesTask = tuxi.task(api.fetchArticles)
 
 // ⚡ Fire the api call
-fetchItemsTask.start()
+articlesTask.start()
 
 // The task is immediately set to pending
-console.log(fetchItemsTask.pending) // true
+console.log(articlesTask.pending) // true
 
 // 🌀 The spinning property has a configurable delay
-setTimeout(() => console.log(fetchItemsTask.spinning), 1500) // true
+setTimeout(() => console.log(articlesTask.spinning), 1500) // true
 
 // After a while...
-console.log(fetchItemsTask.hasValue) // true
+console.log(articlesTask.hasValue) // true
+console.log(articlesTask.value) // ['New Planet Discovered!', '17 Surprising Superfoods!', ...]
 ```
 
 ## Vue
