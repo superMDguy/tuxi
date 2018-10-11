@@ -1,6 +1,6 @@
 # `tuxi.task(fnApiCall, taskConfig)`
 
-See [general](general.md) for details about the arguments. `tuxi.task()` returns a task object, which is also decribed in [general](general.md).
+_See [general](general.md) for details about the arguments. `tuxi.task()` returns a task object, which is also decribed in [general](general.md)._
 
 The main special thing about `tuxi.task()` is how it deals with requests that occur while another one is in progress. When the older promise resolves, tuxi will pass a rejection down the promise chain, and ignore the returned value.
 
@@ -71,7 +71,7 @@ failTask.start().catch(() => {
 })
 ```
 
-### Initial Value, Clear, and isEmpty
+### Initial Value, Clear, and `isEmpty`
 
 ```js
 import tuxi from 'tuxi'

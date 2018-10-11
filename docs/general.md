@@ -2,10 +2,10 @@
 
 Initializing a task is done by using either the `tuxi.task()` or `tuxi.keyed()` methods. Though they have slightly different behavior, they initially take essentially the same arguments. To learn about how to specifically initialize normal and keyed tasks, checkout the more detailed docs [here](task.md) and [here](keyed.md).
 
-- `fnApiCall`: Anything that returns a promise. This is what gets called when you start the task. It can accept a single payload parameter, and this will get passed on when you start the task.
+- `fnApiCall`: Anything that returns a promise. This is what gets called when you start the task. It can accept a single payload parameter, and this will get passed in when you start the task.
 - `taskConfig`: Optional configuration object for the task.
   - `fnIsEmpty`: a function that takes in a result and decides if it's empty. For example, if your task is fetching a list, you'd probably set it to `result => result.length === 0`.
-  - `initialValue`: the default value of the task. Normally, the value of the task will start out `undefined`, setting this will make it start as something different.
+  - `initialValue`: the default value of the task. Normally, the value of the task will start out as `undefined`; setting this will make it start as something different.
   - `spinnerDelay`: number of milliseconds before a task becomes "spinning" after it's started. Normally used for delayed spinners.
 
 # The Task Object
