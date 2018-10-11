@@ -35,3 +35,5 @@ message1Promise.then(() => {
 ```
 
 Other than the different way of accessing them, all the properties behave the same way as they do for [normal tasks](task.md).
+
+[Back to index](readme.md)

@@ -96,3 +96,5 @@ articlesTask.start().then(() => {
   console.log(articlesTask.hasValue) // false
 })
 ```
+
+[Back to index](readme.md)

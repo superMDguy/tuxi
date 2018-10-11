@@ -16,15 +16,16 @@ Both `tuxi.task()` and `tuxi.keyed()` provide a way to access a task object. Eac
 
 | Property Name | Default Value | Description |
 |:-------------:|:-------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------:|
-| empty | false | Whether the most recent value was "empty" (as defined by `fnIsEmpty`) |
-| error | false | Whether there was an error thrown by the most recent async call (so the value is meaningless) |
-| hasValue | false | Whether the most recent call was non-empty and didn't result in an error |
-| pending | false | Whether an async call is currently in progress |
-| spinning | false | Whether a spinner should be shown in the UI. This property is set to true `spinnerDelay`ms after the async call starts. |
-| value | undefined, or provided `initialValue` | The most recent value returned from the async call |
+| `empty` | `false` | Whether the most recent value was "empty" (as defined by `fnIsEmpty`) |
+| `error` | `false` | Whether there was an error thrown by the most recent async call (so the value is meaningless) |
+| `hasValue` | `false` | Whether the most recent call was non-empty and didn't result in an error |
+| `pending` | `false` | Whether an async call is currently in progress |
+| `spinning` | `false` | Whether a spinner should be shown in the UI. This property is set to true `spinnerDelay`ms after the async call starts. |
+| `value` | `undefined`, or provided `initialValue` | The most recent value returned from the async call |
 
 ## Task Methods
 
 - `start`: Starts the async call set by `fnApiCall`. This can take a single payload parameter, which will be passed on to `fnApiCall`. It returns a promise, which resolves to the same value that `fnApiCall` resolves with, and will also pass on errors thrown by `fnApiCall`.
 - `clear`: Clears the task state, so it's as if it just got initialized (so all properties are set to their default values).
 
+[Back to index](readme.md)
