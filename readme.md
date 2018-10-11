@@ -14,10 +14,20 @@ _:sparkles: White glove service for your async needs_
 
 Tuxi automatically manages the state of asynchronous tasks, so you don't have to. No more setting `isLoading` after every api request! :relieved:. For more details about the motivation for tuxi, check out this [article](https://hackernoon.com/a-solution-to-async-boilerplate-in-javascript-2fa717801c3b) I wrote.
 
-## Install
+## Installing
+
+### NPM
 
 ```bash
 npm install --save tuxi
+```
+
+### CDN
+
+Tuxi can also be used directly in the browser through a babel-transpiled and minified build hosted on unpkg:
+
+```html
+<script src="https://unpkg.com/tuxi">
 ```
 
 ## Examples
