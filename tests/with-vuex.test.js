@@ -1,6 +1,7 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
 import tuxi from '../lib'
+import tuxiVue from '../lib/plugins/vue'
 import helpers from './helpers'
 
 Vue.use(Vuex)
@@ -28,7 +29,7 @@ const store = new Vuex.Store({
   }
 })
 
-tuxi.config.vuexStore = store
+tuxi.use(tuxiVue(store))
 const task = store.state.getAsyncResultTask
 
 test('Spinner delay', async () => {
