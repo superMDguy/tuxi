@@ -1,6 +1,6 @@
 # Initializing a Task
 
-Initializing a task is done by using either the `tuxi.task()` or `tuxi.keyed()` methods. Though they have slightly different behavior (as explained [here](TODO)), they initially take in almost the same arguments:
+Initializing a task is done by using either the `tuxi.task()` or `tuxi.keyed()` methods. Though they have slightly different behavior, they initially take essentially the same arguments. To learn about how to specifically initialize normal and keyed tasks, checkout the more detailed docs [here](task.md) and [here](keyed.md).
 
 - `fnApiCall`: Anything that returns a promise. This is what gets called when you start the task. It can accept a single payload parameter, and this will get passed on when you start the task.
 - `taskConfig`: Optional configuration object for the task.
@@ -25,6 +25,6 @@ Both `tuxi.task()` and `tuxi.keyed()` provide a way to access a task object. Eac
 
 ## Task Methods
 
-- `start`: Starts the async call set by `fnApiCall`. This can take a single payload parameter, which will be passed on to `fnApiCall`.
+- `start`: Starts the async call set by `fnApiCall`. This can take a single payload parameter, which will be passed on to `fnApiCall`. It returns a promise, which resolves to the same value that `fnApiCall` resolves with, and will also pass on errors thrown by `fnApiCall`.
 - `clear`: Clears the task state, so it's as if it just got initialized (so all properties are set to their default values).
 

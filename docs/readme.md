@@ -8,3 +8,5 @@ This folder contains documentation for tuxi. It's divided into 6 sections:
 4. [Config](config.md): Describes how to configure tuxi.
 5. [Plugins](vue.md): Describes how the plugin system of tuxi works, and what typically goes into creating a plugin.
 6. [Vue](vue.md): Discusses specific issues related to Vue and Vuex, and how to use the Vue/Vuex plugin to overcome them.
+
+Though I've tried to be clear when describing how everything works, there are probably areas that could be improved. If there's anything that's at all hard to understand, please [create an issue](https://github.com/superMDguy/tuxi/issues/new), and I'll try to improve it.
