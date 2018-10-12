@@ -32,7 +32,7 @@ Tuxi can also be used directly in the browser through a babel-transpiled and min
 
 ## Examples
 
-For complete documentation, see the [docs](docs/readme.md) folder.
+For complete documentation and more examples, see the [docs](docs/readme.md) folder.
 
 ### Pure JavaScript
 
@@ -58,28 +58,6 @@ console.log(articlesTask.value) // ['New Planet Discovered!', '17 Surprising Sup
 
 ## Vue
 
-```html
-<div class="wrapper">
-  <div class="empty-message" v-if="articlesTask.empty">
-    No articles
-  </div>
-
-  <div class="spinner" v-if="articlesTask.spinning">
-    Loading articles...
-  </div>
-
-  <div class="error-message" v-if="articlesTask.error">
-    {{ articlesTask.error.message }}
-  </div>
-
-  <ul v-if="articlesTask.hasValue">
-    <li v-for="article in articles">
-      {{ article.title }}
-    </li>
-  </ul>
-</div>
-```
-
 ```js
 import tuxi from 'tuxi'
 import tuxiVue from 'tuxi/plugins/vue'
@@ -102,47 +80,32 @@ export default {
 }
 ```
 
-### Vuex
+```html
+<div class="wrapper">
+  <div class="empty-message" v-if="articlesTask.empty">
+    No articles
+  </div>
 
-```js
-import tuxi from 'tuxi'
-import tuxiVue from 'tuxi/plugins/vue'
-import Vuex from 'vuex'
-import Vue from 'vue'
-import api from './api'
+  <div class="spinner" v-if="articlesTask.spinning">
+    Loading articles...
+  </div>
 
-Vue.use(Vuex)
+  <div class="error-message" v-if="articlesTask.error">
+    {{ articlesTask.error.message }}
+  </div>
 
-const store = new Vuex.Store({
-  state: {
-    items: [],
-    articlesTask: tuxi.task(api.fetchArticles)
-  },
+  <ul v-if="articlesTask.hasValue">
+    <li v-for="article in articles">
+      {{ article.title }}
+    </li>
+  </ul>
 
-  mutations: {
-    SET_ITEMS(state, items) {
-      state.items = items
-    }
-  },
-
-  actions: {
-    async articles({ commit, state }) {
-      const items = await state.articlesTask.start()
-      commit('SET_ITEMS', items)
-    }
-  }
-})
-
-tuxi.use(tuxiVue(store))
-// Now, you can access $store.state.articlesTask in your components!
+  <button @click="articlesTask.start()">Load Articles</button>
+</div>
 ```
-
-### React/Redux
-
-[todo](https://github.com/superMDguy/tuxi/issues/1)
 
 ## Contributing
 
-Tuxi is currently in alpha, so any suggestions or contributions are appreciated. I'm still not 100% sure about the API, so comments on how to make it cleaner/simpler are welcome.
+Tuxi is still being actively developed, so any suggestions or contributions are appreciated. I'm still not 100% sure about the API, so comments on how to make it cleaner/simpler are welcome. That said though, I think it's definitely ready to be used for non mission critical applications.
 
 _Logo made by [freepik](https://www.flaticon.com/authors/freepik) from www.flaticon.com_

@@ -62,7 +62,7 @@ fs.readdirSync('./lib/plugins').forEach(pluginFileName => {
     input: `lib/plugins/${pluginFileName}`,
     output: {
       format: 'umd',
-      name: `tuxiPlugin${pascalCase(pluginFileName.slice(0, -3))}`,
+      name: `tuxi${pascalCase(pluginFileName.slice(0, -3))}`,
       file: `dist/plugins/${pluginFileName}`,
       globals: { vue: 'Vue', vuex: 'Vuex' }
     },
