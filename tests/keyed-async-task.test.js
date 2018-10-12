@@ -1,7 +1,8 @@
 import tuxi from '../lib'
 import helpers from './helpers'
+import tuxiVue from '../lib/plugins/vue'
 
-tuxi.config.vue = true // shouldn't matter here, just for better coverage
+tuxi.use(tuxiVue()) // shouldn't matter here, just for better coverage
 
 const payload = { name: 'bob' }
 

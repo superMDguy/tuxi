@@ -32,7 +32,7 @@ Tuxi can also be used directly in the browser through a babel-transpiled and min
 
 ## Examples
 
-For complete documentation, see the [docs](docs/readme.md) folder.
+For complete documentation and more examples, see the [docs](docs/readme.md) folder.
 
 ### Pure JavaScript
 
@@ -58,6 +58,28 @@ console.log(articlesTask.value) // ['New Planet Discovered!', '17 Surprising Sup
 
 ## Vue
 
+```js
+import tuxi from 'tuxi'
+import tuxiVue from 'tuxi/plugins/vue'
+import api from './api'
+
+tuxi.use(tuxiVue())
+
+export default {
+  data() {
+    return {
+      articlesTask: tuxi.task(api.fetchArticles)
+    }
+  },
+
+  computed: {
+    articles() {
+      return this.articlesTask.value
+    }
+  }
+}
+```
+
 ```html
 <div class="wrapper">
   <div class="empty-message" v-if="articlesTask.empty">
@@ -77,68 +99,13 @@ console.log(articlesTask.value) // ['New Planet Discovered!', '17 Surprising Sup
       {{ article.title }}
     </li>
   </ul>
+
+  <button @click="articlesTask.start()">Load Articles</button>
 </div>
 ```
 
-```js
-import tuxi from 'tuxi'
-import api from './api'
-
-export default {
-  data() {
-    return {
-      articlesTask: tuxi.task(api.fetchArticles)
-    }
-  },
-
-  computed: {
-    articles() {
-      return this.articlesTask.value
-    }
-  }
-}
-```
-
-### Vuex
-
-```js
-import tuxi from 'tuxi'
-import Vuex from 'vuex'
-import Vue from 'vue'
-import api from './api'
-
-Vue.use(Vuex)
-
-const store = new Vuex.Store({
-  state: {
-    items: [],
-    articlesTask: tuxi.task(api.fetchArticles)
-  },
-
-  mutations: {
-    SET_ITEMS(state, items) {
-      state.items = items
-    }
-  },
-
-  actions: {
-    async articles({ commit, state }) {
-      const items = await state.articlesTask.start()
-      commit('SET_ITEMS', items)
-    }
-  }
-})
-
-tuxi.config.vuexStore = store
-// Now, you can access $store.state.articlesTask in your components!
-```
-
-### React/Redux
-
-[todo](https://github.com/superMDguy/tuxi/issues/1)
-
 ## Contributing
 
-Tuxi is currently in alpha, so any suggestions or contributions are appreciated. I'm still not 100% sure about the API, so comments on how to make it cleaner/simpler are welcome.
+Tuxi is still being actively developed, so any suggestions or contributions are appreciated. I'm still not 100% sure about the API, so comments on how to make it cleaner/simpler are welcome. That said though, I think it's definitely ready to be used for non mission critical applications.
 
 _Logo made by [freepik](https://www.flaticon.com/authors/freepik) from www.flaticon.com_
