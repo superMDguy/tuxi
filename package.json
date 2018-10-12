@@ -17,7 +17,7 @@
     "test": "jest tests/*.test.js",
     "test:ci": "npm test -- --ci --reporters=default --reporters=jest-junit && npx codecov",
     "lint": "eslint --fix ./{lib,tests}/**/*.js",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build && cp -r ./dist/* .",
     "build": "rimraf dist && rollup -c"
   },
   "keywords": [
@@ -42,6 +42,7 @@
     "eslint-plugin-prettier": "^2.6.2",
     "jest": "^23.4.2",
     "jest-junit": "^5.1.0",
+    "pascalcase": "^0.1.1",
     "prettier": "1.14.2",
     "rimraf": "^2.6.2",
     "rollup": "^0.66.6",
