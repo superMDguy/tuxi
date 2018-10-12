@@ -82,7 +82,10 @@ console.log(articlesTask.value) // ['New Planet Discovered!', '17 Surprising Sup
 
 ```js
 import tuxi from 'tuxi'
+import tuxiVue from 'tuxi/plugins/vue'
 import api from './api'
+
+tuxi.use(tuxiVue())
 
 export default {
   data() {
@@ -103,6 +106,7 @@ export default {
 
 ```js
 import tuxi from 'tuxi'
+import tuxiVue from 'tuxi/plugins/vue'
 import Vuex from 'vuex'
 import Vue from 'vue'
 import api from './api'
@@ -129,7 +133,7 @@ const store = new Vuex.Store({
   }
 })
 
-tuxi.config.vuexStore = store
+tuxi.use(tuxiVue(store))
 // Now, you can access $store.state.articlesTask in your components!
 ```
 
