@@ -6,10 +6,10 @@
   },
   "version": "0.2.4-0",
   "description": "Automatically manage state of asynchronous tasks.",
-  "main": "dist/index.js",
-  "unpkg": "dist/tuxi.min.js",
-  "module": "dist/tuxi.es.js",
-  "jsnext:main": "dist/tuxi.es.js",
+  "main": "index.js",
+  "unpkg": "tuxi.min.js",
+  "module": "tuxi.es.js",
+  "jsnext:main": "tuxi.es.js",
   "directories": {
     "lib": "lib"
   },
@@ -17,7 +17,7 @@
     "test": "jest tests/*.test.js",
     "test:ci": "npm test -- --ci --reporters=default --reporters=jest-junit && npx codecov",
     "lint": "eslint --fix ./{lib,tests}/**/*.js",
-    "prepublishOnly": "npm run build && cp -r ./dist/* .",
+    "prepublishOnly": "npm run build && cp -r ./dist/plugins .",
     "build": "rimraf dist && rollup -c"
   },
   "keywords": [
