@@ -6,10 +6,10 @@
   },
   "version": "0.2.4-1",
   "description": "Automatically manage state of asynchronous tasks.",
-  "main": "index.js",
-  "unpkg": "tuxi.min.js",
-  "module": "tuxi.es.js",
-  "jsnext:main": "tuxi.es.js",
+  "main": "dist/index.js",
+  "unpkg": "dist/tuxi.min.js",
+  "module": "dist/tuxi.es.js",
+  "jsnext:main": "dist/tuxi.es.js",
   "directories": {
     "lib": "lib"
   },
