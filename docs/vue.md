@@ -48,7 +48,7 @@ export default {
     </li>
   </ul>
 
-  <button @click="articlesTask()">Load Articles</button>
+  <button @click="articles()">Load Articles</button>
 </div>
 ```
 
@@ -77,7 +77,7 @@ const store = new Vuex.Store({
 
   actions: {
     async articles({ commit, state }) {
-      const items = await state.articlesTask()
+      const items = await state.articles()
       commit('SET_ITEMS', items)
     }
   }

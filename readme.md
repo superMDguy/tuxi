@@ -43,7 +43,7 @@ import api from './api'
 const articles = tuxi.task(api.fetchArticles)
 
 // ⚡ Fire the api call
-articlesTask()
+articles()
 
 // The task is immediately set to pending
 console.log(articles.pending) // true
@@ -100,7 +100,7 @@ export default {
     </li>
   </ul>
 
-  <button @click="articlesTask()">Load Articles</button>
+  <button @click="articles()">Load Articles</button>
 </div>
 ```
 

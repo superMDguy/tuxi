@@ -41,7 +41,7 @@ test('Spinner delay', async () => {
     spinnerDelay: 500
   })
 
-  const longerTaskDone = longerTask()
+  const longerTaskDone = longer()
 
   setTimeout(() => {
     expect(longer.spinning).toBe(false)

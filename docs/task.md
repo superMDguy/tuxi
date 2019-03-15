@@ -12,8 +12,8 @@ import api from './api'
 
 const numbers = tuxi.task(api.echo) // echo resolves with what it's given after 5 seconds.
 
-const aPromise = articlesTask('a')
-const bPromise = articlesTask('b')
+const aPromise = articles('a')
+const bPromise = articles('b')
 
 setTimeout(() => {
   console.log(numbers.value) // "b", since that was the most recent request
@@ -31,7 +31,7 @@ import api from './api'
 
 const articles = tuxi.task(api.fetchArticles)
 
-articlesTask().then(result => {
+articles().then(result => {
   console.log(articles.hasValue) // true
   console.log(articles.value) // ['New Planet Discovered!', '17 Surprising Superfoods!', ...]
   // could also console.log(result) to see the same thing
@@ -46,7 +46,7 @@ import api from './api'
 
 const articles = tuxi.task(api.fetchArticles, { spinnerDelay: 500 })
 
-const articlesPromise = articlesTask()
+const articlesPromise = articles()
 console.log(articles.pending) // true
 console.log(articles.spinning) // false, hasn't been 500ms yet
 
@@ -65,7 +65,7 @@ import tuxi from 'tuxi'
 
 const failPromiseFn = () => new Promise((resolve, reject) => reject('Error :('))
 const fail = tuxi.task(failPromiseFn)
-failTask().catch(() => {
+fail().catch(() => {
   console.log(fail.error) // "Error :("
   console.log(fail.hasValue) // false
 })
@@ -86,7 +86,7 @@ console.log(articles.value) // ['Placeholder article']
 console.log(articles.hasValue) // false
 // This may seem unexpected, but hasValue is only true once a value is actually fetched. If you think this shouldn't be the case, feel free to create an issue.
 
-articlesTask().then(() => {
+articles().then(() => {
   console.log(articles.hasValue) // true
   console.log(articles.value) // ['New Planet Discovered!', '17 Surprising Superfoods!', ...]
 

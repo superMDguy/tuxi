@@ -18,8 +18,8 @@ const sendMessage = tuxi.task(api.sendMessage, 'id') // the id field of the payl
 
 const message1 = { id: 1, content: 'hello, world' }
 const message2 = { id: 2, content: 'how you doin?' }
-const message1Promise = sendMessageTask(message1)
-const message2Promise = sendMessageTask(message2)
+const message1Promise = sendMessage(message1)
+const message2Promise = sendMessage(message2)
 
 console.log(sendMessage.pending(message1)) // true
 // Calling .pending(message1) extracts a key from message1 using the provided key ('id'), and then lookup the request state and return whether or not it's pending
