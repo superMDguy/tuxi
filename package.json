@@ -53,9 +53,6 @@
     "vue": "^2.5.17",
     "vuex": "^3.0.1"
   },
-  "dependencies": {
-    "is-promise": "^2.1.0"
-  },
   "peerDependencies": {
     "vue": "^2.0.0"
   },
