@@ -23,7 +23,7 @@ const store = new Vuex.Store({
 
   actions: {
     async getAsyncResult({ commit, state }) {
-      const result = await state.getAsyncResultTask.start()
+      const result = await state.getAsyncResultTask()
       commit('SET_RESULT', result)
     }
   }
@@ -33,7 +33,7 @@ tuxi.use(tuxiVue(store))
 const task = store.state.getAsyncResultTask
 
 test('Spinner delay', async () => {
-  const taskPromise = task.start()
+  const taskPromise = task()
 
   setTimeout(() => {
     expect(task.spinning).toBe(true)

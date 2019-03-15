@@ -12,8 +12,8 @@ import api from './api'
 
 const numbersTask = tuxi.task(api.echo) // echo resolves with what it's given after 5 seconds.
 
-const aPromise = articlesTask.start('a')
-const bPromise = articlesTask.start('b')
+const aPromise = articlesTask('a')
+const bPromise = articlesTask('b')
 
 setTimeout(() => {
   console.log(numbersTask.value) // "b", since that was the most recent request
@@ -31,7 +31,7 @@ import api from './api'
 
 const articlesTask = tuxi.task(api.fetchArticles)
 
-articlesTask.start().then(result => {
+articlesTask().then(result => {
   console.log(articlesTask.hasValue) // true
   console.log(articlesTask.value) // ['New Planet Discovered!', '17 Surprising Superfoods!', ...]
   // could also console.log(result) to see the same thing
@@ -46,7 +46,7 @@ import api from './api'
 
 const articlesTask = tuxi.task(api.fetchArticles, { spinnerDelay: 500 })
 
-const articlesPromise = articlesTask.start()
+const articlesPromise = articlesTask()
 console.log(articlesTask.pending) // true
 console.log(articlesTask.spinning) // false, hasn't been 500ms yet
 
@@ -65,7 +65,7 @@ import tuxi from 'tuxi'
 
 const failPromiseFn = () => new Promise((resolve, reject) => reject('Error :('))
 const failTask = tuxi.task(failPromiseFn)
-failTask.start().catch(() => {
+failTask().catch(() => {
   console.log(failTask.error) // "Error :("
   console.log(failTask.hasValue) // false
 })
@@ -86,7 +86,7 @@ console.log(articlesTask.value) // ['Placeholder article']
 console.log(articlesTask.hasValue) // false
 // This may seem unexpected, but hasValue is only true once a value is actually fetched. If you think this shouldn't be the case, feel free to create an issue.
 
-articlesTask.start().then(() => {
+articlesTask().then(() => {
   console.log(articlesTask.hasValue) // true
   console.log(articlesTask.value) // ['New Planet Discovered!', '17 Surprising Superfoods!', ...]
 

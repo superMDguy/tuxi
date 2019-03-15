@@ -9,7 +9,7 @@ const payload = { name: 'bob' }
 test('Supports string for key', async () => {
   const RESULT = 'async result'
   const task = tuxi.keyed(helpers.asyncTimeout(50, RESULT), 'name')
-  await task.start(payload)
+  await task(payload)
   expect(task.hasValue(payload)).toEqual(true)
   expect(task.value(payload)).toEqual(RESULT)
 })
@@ -17,7 +17,7 @@ test('Supports string for key', async () => {
 test('Supports function for key', async () => {
   const RESULT = 'async result'
   const task = tuxi.keyed(helpers.asyncTimeout(50, RESULT), helpers.stringify)
-  await task.start(payload)
+  await task(payload)
   expect(task.hasValue(payload)).toEqual(true)
   expect(task.value(payload)).toEqual(RESULT)
 })
@@ -27,7 +27,7 @@ test('Initial value and clear', async () => {
     initialValue: 'tuxi'
   })
 
-  const taskPromise = task.start(payload)
+  const taskPromise = task(payload)
   expect(task.value(payload)).toBe('tuxi')
   await taskPromise
   task.clear(payload)
@@ -36,7 +36,7 @@ test('Initial value and clear', async () => {
 
 test('Pending', async () => {
   const task = tuxi.keyed(helpers.asyncTimeout(), 'name')
-  const taskPromise = task.start(payload)
+  const taskPromise = task(payload)
   expect(task.pending(payload)).toBe(true)
   await taskPromise
   expect(task.pending(payload)).toBe(false)
@@ -47,7 +47,7 @@ test('Spinner delay', async () => {
     spinnerDelay: 250
   })
 
-  const taskPromise = task.start(payload)
+  const taskPromise = task(payload)
 
   setTimeout(() => {
     expect(task.spinning(payload)).toBe(true)
@@ -62,7 +62,7 @@ test('Error if key is not defined', () => {
 
   expect.assertions(1)
   try {
-    task.start({})
+    task({})
   } catch (err) {
     expect(err).toBeDefined()
   }
@@ -76,7 +76,7 @@ test('Error state', async () => {
   )
 
   try {
-    await task.start(payload)
+    await task(payload)
   } catch (err) {
     expect(err.message).toBe(ERROR_MESSAGE)
     expect(task.error(payload)).toEqual(err)
@@ -92,7 +92,7 @@ test('Custom empty state', async () => {
     fnIsEmpty: val => val === EMPTY_VAL
   })
 
-  await task.start(payload)
+  await task(payload)
 
   expect(task.empty(payload)).toBe(true)
   expect(task.hasValue(payload)).toBe(false)

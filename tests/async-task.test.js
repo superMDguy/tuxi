@@ -7,7 +7,7 @@ test('Initial value and clear', async () => {
   })
 
   expect(task.value).toBe('tuxi')
-  await task.start()
+  await task()
   task.clear()
   expect(task.value).toBe('tuxi')
 })
@@ -16,7 +16,7 @@ test('Pending', async () => {
   const task = tuxi.task(helpers.asyncTimeout())
 
   expect(task.pending).toBe(false)
-  const taskDone = task.start()
+  const taskDone = task()
   expect(task.pending).toBe(true)
 
   await taskDone
@@ -28,7 +28,7 @@ test('Spinner delay', async () => {
     spinnerDelay: 250
   })
 
-  const taskDone = task.start()
+  const taskDone = task()
 
   setTimeout(() => {
     expect(task.spinning).toBe(true)
@@ -41,7 +41,7 @@ test('Spinner delay', async () => {
     spinnerDelay: 500
   })
 
-  const longerTaskDone = longerTask.start()
+  const longerTaskDone = longerTask()
 
   setTimeout(() => {
     expect(longerTask.spinning).toBe(false)
@@ -60,7 +60,7 @@ test('Error state', async () => {
 
   expect(task.error).toBe(false)
   try {
-    await task.start()
+    await task()
   } catch (err) {
     expect(err.message).toBe(ERROR_MESSAGE)
     expect(task.error).toEqual(err)
@@ -75,7 +75,7 @@ test('Gets correct value', async () => {
   const task = tuxi.task(helpers.asyncTimeout(100, RESULT))
 
   expect(task.hasValue).toBe(false)
-  await task.start()
+  await task()
   expect(task.hasValue).toBe(true)
   expect(task.value).toBe(RESULT)
 })
@@ -83,11 +83,11 @@ test('Gets correct value', async () => {
 test('Prioritizes newest call', async () => {
   const task = tuxi.task(helpers.asyncTimeout())
 
-  const taskPromise1 = task.start({
+  const taskPromise1 = task({
     overrideTimeout: 500,
     overrideResolveWith: '1'
   })
-  task.start({
+  task({
     overrideTimeout: 100,
     overrideResolveWith: '2'
   })
@@ -111,7 +111,7 @@ test('Custom empty state', async () => {
 
   expect(task.empty).toBe(false)
 
-  await task.start()
+  await task()
 
   expect(task.empty).toBe(true)
   expect(task.hasValue).toBe(false)
