@@ -40,20 +40,20 @@ For complete documentation and more examples, see the [docs](docs/readme.md) fol
 import tuxi from 'tuxi'
 import api from './api'
 
-const articlesTask = tuxi.task(api.fetchArticles)
+const articles = tuxi.task(api.fetchArticles)
 
 // ⚡ Fire the api call
 articlesTask()
 
 // The task is immediately set to pending
-console.log(articlesTask.pending) // true
+console.log(articles.pending) // true
 
 // 🌀 The spinning property has a configurable delay
-setTimeout(() => console.log(articlesTask.spinning), 1500) // true
+setTimeout(() => console.log(articles.spinning), 1500) // true
 
 // After a while...
-console.log(articlesTask.hasValue) // true
-console.log(articlesTask.value) // ['New Planet Discovered!', '17 Surprising Superfoods!', ...]
+console.log(articles.hasValue) // true
+console.log(articles.value) // ['New Planet Discovered!', '17 Surprising Superfoods!', ...]
 ```
 
 ## Vue
@@ -74,7 +74,7 @@ export default {
 
   computed: {
     articles() {
-      return this.articlesTask.value
+      return this.articles.value
     }
   }
 }
@@ -82,19 +82,19 @@ export default {
 
 ```html
 <div class="wrapper">
-  <div class="empty-message" v-if="articlesTask.empty">
+  <div class="empty-message" v-if="articles.empty">
     No articles
   </div>
 
-  <div class="spinner" v-if="articlesTask.spinning">
+  <div class="spinner" v-if="articles.spinning">
     Loading articles...
   </div>
 
-  <div class="error-message" v-if="articlesTask.error">
-    {{ articlesTask.error.message }}
+  <div class="error-message" v-if="articles.error">
+    {{ articles.error.message }}
   </div>
 
-  <ul v-if="articlesTask.hasValue">
+  <ul v-if="articles.hasValue">
     <li v-for="article in articles">
       {{ article.title }}
     </li>

@@ -22,7 +22,7 @@ export default {
 
   computed: {
     articles() {
-      return this.articlesTask.value
+      return this.articles.value
     }
   }
 }
@@ -30,19 +30,19 @@ export default {
 
 ```html
 <div class="wrapper">
-  <div class="empty-message" v-if="articlesTask.empty">
+  <div class="empty-message" v-if="articles.empty">
     No articles
   </div>
 
-  <div class="spinner" v-if="articlesTask.spinning">
+  <div class="spinner" v-if="articles.spinning">
     Loading articles...
   </div>
 
-  <div class="error-message" v-if="articlesTask.error">
-    {{ articlesTask.error.message }}
+  <div class="error-message" v-if="articles.error">
+    {{ articles.error.message }}
   </div>
 
-  <ul v-if="articlesTask.hasValue">
+  <ul v-if="articles.hasValue">
     <li v-for="article in articles">
       {{ article.title }}
     </li>

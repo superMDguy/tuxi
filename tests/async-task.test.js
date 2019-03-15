@@ -37,21 +37,21 @@ test('Spinner delay', async () => {
   await taskDone
   expect(task.spinning).toBe(false)
 
-  const longerTask = tuxi.task(helpers.asyncTimeout(750), {
+  const longer = tuxi.task(helpers.asyncTimeout(750), {
     spinnerDelay: 500
   })
 
   const longerTaskDone = longerTask()
 
   setTimeout(() => {
-    expect(longerTask.spinning).toBe(false)
+    expect(longer.spinning).toBe(false)
   }, 350)
   setTimeout(() => {
-    expect(longerTask.spinning).toBe(true)
+    expect(longer.spinning).toBe(true)
   }, 550)
 
   await longerTaskDone
-  expect(longerTask.spinning).toBe(false)
+  expect(longer.spinning).toBe(false)
 })
 
 test('Error state', async () => {

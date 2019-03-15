@@ -14,24 +14,24 @@ When you create a keyed task, you'll get an object that has all the properties m
 import tuxi from 'tuxi'
 import api from './api'
 
-const sendMessageTask = tuxi.task(api.sendMessage, 'id') // the id field of the payload will be used as a key
+const sendMessage = tuxi.task(api.sendMessage, 'id') // the id field of the payload will be used as a key
 
 const message1 = { id: 1, content: 'hello, world' }
 const message2 = { id: 2, content: 'how you doin?' }
 const message1Promise = sendMessageTask(message1)
 const message2Promise = sendMessageTask(message2)
 
-console.log(sendMessageTask.pending(message1)) // true
+console.log(sendMessage.pending(message1)) // true
 // Calling .pending(message1) extracts a key from message1 using the provided key ('id'), and then lookup the request state and return whether or not it's pending
 
-console.log(sendMessageTask.pending(message2)) // true
+console.log(sendMessage.pending(message2)) // true
 
 // assume message1Promise is guaranteed to resolve before message2Promise
 message1Promise.then(() => {
-  console.log(sendMessageTask.pending(message1)) // false
-  console.log(sendMessageTask.value(message1)) // "success" (response from the server)
+  console.log(sendMessage.pending(message1)) // false
+  console.log(sendMessage.value(message1)) // "success" (response from the server)
 
-  console.log(sendMessageTask.pending(message2)) // true
+  console.log(sendMessage.pending(message2)) // true
   //The state of the message 2 request is stored separately from the state of the message 1 request
 })
 ```
